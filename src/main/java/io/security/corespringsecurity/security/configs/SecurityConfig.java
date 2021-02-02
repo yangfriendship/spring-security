@@ -20,12 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        String notEncodingPassword = "1234";
-        String password = passwordEncoder().encode(notEncodingPassword);
+        String rawPassword = "1234";
+        String encodedPassword = passwordEncoder().encode(rawPassword);
 
-        auth.inMemoryAuthentication().withUser("user").password(password).roles("USER");
-        auth.inMemoryAuthentication().withUser("manager").password(password).roles("MANAGER");
-        auth.inMemoryAuthentication().withUser("admin").password(password).roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user").password(encodedPassword).roles("USER");
+        auth.inMemoryAuthentication().withUser("manager").password(encodedPassword)
+            .roles("MANAGER");
+        auth.inMemoryAuthentication().withUser("admin").password(encodedPassword).roles("ADMIN");
 
     }
 
@@ -44,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/").permitAll()
+            .antMatchers("/","/join").permitAll()
             .antMatchers("/mypage").hasRole("USER")
             .antMatchers("/messages").hasRole("MANAGER")
             .antMatchers("config").hasRole("ADMIN")
