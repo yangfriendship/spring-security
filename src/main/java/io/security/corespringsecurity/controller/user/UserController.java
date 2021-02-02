@@ -28,14 +28,17 @@ public class UserController {
 
     @GetMapping("/join")
     public String joinForm() {
+        System.out.println("join Get");
+
         return "user/login/register";
     }
 
     @PostMapping("/join")
     public String joinFormSubmit(AccountDto accountDto, Errors errors,
         RedirectAttributes redirectAttributes, Model model) {
-
+        System.out.println("join Post");
         if (errors.hasErrors()) {
+            System.out.println("join Post error");
             model.addAttribute(accountDto);
             return "user/login/register";
         }
