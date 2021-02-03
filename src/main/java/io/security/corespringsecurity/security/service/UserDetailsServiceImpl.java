@@ -2,8 +2,9 @@ package io.security.corespringsecurity.security.service;
 
 import io.security.corespringsecurity.domain.entity.Account;
 import io.security.corespringsecurity.repository.UserRepository;
-import java.util.ArrayList;
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,9 +32,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 throw new UsernameNotFoundException("No user found with username: " + username);
             }
         }
-        ArrayList<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
-        roles.add(new SimpleGrantedAuthority(account.getRole()));
+        Set<String> userRoles = account.getUserRoles()
+            .stream()
+            .map(userRole -> userRole.getRoleName())
+            .collect(Collectors.toSet());
 
-        return new AccountContext(account, roles);
+        List<GrantedAuthority> collect = userRoles.stream().map(SimpleGrantedAuthority::new)
+            .collect(Collectors.toList());
+        return new AccountContext(account, collect);
     }
 }

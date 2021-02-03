@@ -50,9 +50,6 @@ public class Account implements Serializable {
         @JoinColumn(name = "role_id")})
     private Set<Role> userRoles = new HashSet<>();
 
-    public String getRole() {
-        return "R";
-    }
 }
 
 
