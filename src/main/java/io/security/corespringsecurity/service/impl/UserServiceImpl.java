@@ -1,29 +1,53 @@
 package io.security.corespringsecurity.service.impl;
 
-import io.security.corespringsecurity.domain.Account;
+import io.security.corespringsecurity.domain.dto.UserDto;
+import io.security.corespringsecurity.domain.entity.Account;
 import io.security.corespringsecurity.repository.UserRepository;
 import io.security.corespringsecurity.service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import java.util.List;
+import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service("userService")
-@Transactional
-@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository userRepository;
 
-
+    @Transactional
     @Override
-    public Account createUser(Account account) {
-        encodePassword(account);
-        return userRepository.save(account);
+    public void createUser(Account account){
+        userRepository.save(account);
     }
 
-    private void encodePassword(Account account) {
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
+    @Transactional
+    public UserDto getUser(Long id) {
+
+        Account account = userRepository.findById(id).orElse(new Account());
+        ModelMapper modelMapper = new ModelMapper();
+        UserDto userDto = modelMapper.map(account, UserDto.class);
+
+        List<String> roles = account.getUserRoles()
+                .stream()
+                .map(role -> role.getRoleName())
+                .collect(Collectors.toList());
+
+        userDto.setRoles(roles);
+        return userDto;
+    }
+
+    @Transactional
+    public List<Account> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
 }

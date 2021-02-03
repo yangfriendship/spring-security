@@ -1,53 +1,73 @@
 package io.security.corespringsecurity.controller.user;
 
 
-import io.security.corespringsecurity.domain.Account;
-import io.security.corespringsecurity.domain.AccountDto;
+import io.security.corespringsecurity.domain.dto.AccountDto;
+import io.security.corespringsecurity.domain.entity.Account;
+import io.security.corespringsecurity.security.token.AjaxAuthenticationToken;
 import io.security.corespringsecurity.service.UserService;
-import lombok.RequiredArgsConstructor;
+import java.security.Principal;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@RequiredArgsConstructor
 public class UserController {
+	
+	@Autowired
+	private UserService userService;
 
-    private final UserService userService;
-    private final ModelMapper modelMapper;
-    private final AuthenticationProvider authenticationProvider;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-    @GetMapping(value = "/mypage")
-    public String myPage() throws Exception {
+	@GetMapping(value="/users")
+	public String createUser() throws Exception {
 
-        return "user/mypage";
-    }
+		return "user/login/register";
+	}
 
-    @GetMapping("/join")
-    public String joinForm() {
-        System.out.println("join Get");
+	@PostMapping(value="/users")
+	public String createUser(AccountDto accountDto) throws Exception {
 
-        return "user/login/register";
-    }
+		ModelMapper modelMapper = new ModelMapper();
+		Account account = modelMapper.map(accountDto, Account.class);
+		account.setPassword(passwordEncoder.encode(accountDto.getPassword()));
+		userService.createUser(account);
 
-    @PostMapping("/join")
-    public String joinFormSubmit(AccountDto accountDto, Errors errors,
-        Model model) {
-        if (errors.hasErrors()) {
-            model.addAttribute(accountDto);
-            return "user/login/register";
-        }
-        Account account = modelMapper.map(accountDto, Account.class);
-        Account savedAccount = userService.createUser(account);
+		return "redirect:/";
+	}
 
+	@GetMapping(value="/mypage")
+	public String myPage(@AuthenticationPrincipal Account account, Authentication authentication, Principal principal) throws Exception {
 
-        return "redirect:/login";
-    }
+		String username1 = account.getUsername();
+		System.out.println("username1 = " + username1);
+
+		Account account2 = (Account) authentication.getPrincipal();
+		String username2 = account2.getUsername();
+		System.out.println("username2 = " + username2);
+
+		Account account3 = null;
+		if (principal instanceof UsernamePasswordAuthenticationToken) {
+			account3 = (Account) ((UsernamePasswordAuthenticationToken) principal).getPrincipal();
+
+		}else if(principal instanceof AjaxAuthenticationToken){
+			account3 = (Account) ((AjaxAuthenticationToken) principal).getPrincipal();
+		}
+
+		String username3 = account3.getUsername();
+		System.out.println("username3 = " + username3);
+
+		Account account4 = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username4 = account4.getUsername();
+		System.out.println("username4 = " + username4);
+
+		return "user/mypage";
+	}
 }

@@ -2,54 +2,52 @@ package io.security.corespringsecurity.security.provider;
 
 import io.security.corespringsecurity.security.common.FormWebAuthenticationDetails;
 import io.security.corespringsecurity.security.service.AccountContext;
+import javax.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Slf4j
 public class FormAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
     private UserDetailsService userDetailsService;
 
+    private PasswordEncoder passwordEncoder;
 
-    /*
-     * 파라미터로 전달받는 Authentication은 폼에서 들어온 username과 password만 들어있다.
-     * */
+    public FormAuthenticationProvider(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Override
-    public Authentication authenticate(Authentication authentication)
-        throws AuthenticationException {
+    @Transactional
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-        String username = authentication.getName();
-        String rawPassword = (String) authentication.getCredentials();
+        String loginId = authentication.getName();
+        String password = (String) authentication.getCredentials();
 
-        AccountContext accountContext = (AccountContext) userDetailsService
-            .loadUserByUsername(username);
-        if (!passwordEncoder.matches(rawPassword, accountContext.getPassword())) {
-            throw new BadCredentialsException("인증 실패");
+        AccountContext accountContext = (AccountContext)userDetailsService.loadUserByUsername(loginId);
+
+        if (!passwordEncoder.matches(password, accountContext.getPassword())) {
+            throw new BadCredentialsException("Invalid password");
         }
 
-        FormWebAuthenticationDetails formWebAuthenticationDetails = (FormWebAuthenticationDetails) authentication
-            .getDetails();
-
-        String secretKey = formWebAuthenticationDetails.getSecretKey();
+        String secretKey = ((FormWebAuthenticationDetails) authentication.getDetails()).getSecretKey();
         if (secretKey == null || !secretKey.equals("secret")) {
-            throw new InsufficientAuthenticationException("InsufficientAuthenticationException");
+            throw new IllegalArgumentException("Invalid Secret");
         }
 
-        return new UsernamePasswordAuthenticationToken(accountContext.getAccount(), null,
-            accountContext.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(accountContext.getAccount(), null, accountContext.getAuthorities());
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }

@@ -8,28 +8,81 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ajax.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/AjaxLoginAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/AjaxSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationFailureHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/CustomAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/AjaxAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/token/AjaxAuthenticationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/denied.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/message.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/io/security/corespringsecurity/security/configs/AjaxSecurityConfigTest.java" afterDir="false" />
+    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="feat : ajax login">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/common/GlobalWebControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/ResourcesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/UserManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/dto/AccountDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/dto/ResourcesDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/dto/RoleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/entity/Resources.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/repository/ResourcesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/AjaxLoginConfigurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/FormAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/FormAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/ResourcesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/impl/ResourcesServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/util/WebUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/common/head.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/common/top.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/config.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/resource/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/resource/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/role/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/role/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/user/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/user/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corespringsecurity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/corespringsecurity.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/login/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/AccountDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/AjaxLoginAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/AjaxLoginAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/FormAuthenticationDetailsSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/FormWebAuthenticationDetailsSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/FormWebAuthenticationDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/FormWebAuthenticationDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/AjaxSecurityConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationFailureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationFailureHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxDeniedHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/CustomAccessDeniedHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/CustomAuthenticationFailureHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/CustomAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/FormAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/AjaxAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/AjaxAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/FormAuthenticationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/FormAuthenticationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/AccountContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/AccountContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/token/AjaxAuthenticationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/token/AjaxAuthenticationToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/denied.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/denied.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/message.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/successRegister.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +110,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Users\yangf\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+        <option name="mavenHome" value="C:\Users\yangf\.m2\wrapper\dists\apache-maven-3.6.2-bin\795eh28tki48bv3l67maojf0ra\apache-maven-3.6.2" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -78,7 +131,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -89,17 +142,19 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="io.security.corespringsecurity.security.configs" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="io.security.corespringsecurity.security.handler" />
       <recent name="io.security.corespringsecurity.security.configs" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\resources" />
+      <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\java\io\security\corespringsecurity" />
+      <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\java\io\security\corespringsecurity\domain" />
       <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\resources\templates" />
       <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\resources\templates\user\login" />
-      <recent name="C:\Users\yangf\workspace\spring\basicsecurity" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -129,19 +184,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.CoreSpringSecurityApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ajax#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/ajax.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -185,11 +227,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.ajax#1" />
+      <item itemvalue="HTTP Request.ajax#2" />
+      <item itemvalue="JUnit.AjaxSecurityConfigTest.ajaxLoginTest_Success" />
       <item itemvalue="Spring Boot.BasicsecurityApplication" />
       <item itemvalue="Spring Boot.CoreSpringSecurityApplication" />
-      <item itemvalue="HTTP Request.ajax#1" />
-      <item itemvalue="JUnit.AjaxSecurityConfigTest.ajaxLoginTest_Success" />
-      <item itemvalue="HTTP Request.ajax#2" />
     </list>
     <recent_temporary>
       <list>
@@ -213,7 +255,16 @@
       <updated>1612055918040</updated>
       <workItem from="1612055919488" duration="14282000" />
       <workItem from="1612242428003" duration="21000" />
+      <workItem from="1612350057157" duration="1685000" />
     </task>
+    <task id="LOCAL-00001" summary="feat : ajax login">
+      <created>1612348121762</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1612348121762</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +330,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat : ajax login" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : ajax login" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1612335142761">
       <screen x="0" y="0" width="1280" height="680" />
@@ -296,62 +351,62 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612242447489" />
-    <state width="1237" height="304" key="GridCell.Tab.0.bottom" timestamp="1612347934511">
+    <state width="1237" height="154" key="GridCell.Tab.0.bottom" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.0.center" timestamp="1612347934510">
+    <state width="1237" height="154" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="154" key="GridCell.Tab.0.center" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934510" />
-    <state width="1237" height="304" key="GridCell.Tab.0.left" timestamp="1612347934510">
+    <state width="1237" height="154" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="154" key="GridCell.Tab.0.left" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934510" />
-    <state width="1237" height="304" key="GridCell.Tab.0.right" timestamp="1612347934511">
+    <state width="1237" height="154" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="154" key="GridCell.Tab.0.right" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.1.bottom" timestamp="1612347934511">
+    <state width="1237" height="154" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="201" key="GridCell.Tab.1.bottom" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.1.center" timestamp="1612347934511">
+    <state width="1237" height="201" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="201" key="GridCell.Tab.1.center" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.1.left" timestamp="1612347934511">
+    <state width="1237" height="201" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="201" key="GridCell.Tab.1.left" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.1.right" timestamp="1612347934511">
+    <state width="1237" height="201" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="201" key="GridCell.Tab.1.right" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.2.bottom" timestamp="1612347934511">
+    <state width="1237" height="201" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="304" key="GridCell.Tab.2.bottom" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.2.center" timestamp="1612347934511">
+    <state width="1237" height="304" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="304" key="GridCell.Tab.2.center" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.2.left" timestamp="1612347934511">
+    <state width="1237" height="304" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="304" key="GridCell.Tab.2.left" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
-    <state width="1237" height="304" key="GridCell.Tab.2.right" timestamp="1612347934511">
+    <state width="1237" height="304" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
+    <state width="1237" height="304" key="GridCell.Tab.2.right" timestamp="1612348191388">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1612348191388" />
     <state x="171" y="0" key="Maven.ArtifactSearchDialog" timestamp="1612328203593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="171" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1612328203593" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1612327150839">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1612348123871">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612327150839" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612348123871" />
     <state x="372" y="73" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1612339408801">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -364,10 +419,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="347" y="72" width="587" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1612347096646" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612347991676">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612352181687">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612347991676" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612352181687" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
