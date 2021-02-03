@@ -1,16 +1,18 @@
 package io.security.corespringsecurity.security.provider;
 
+import io.security.corespringsecurity.security.common.FormWebAuthenticationDetails;
 import io.security.corespringsecurity.security.service.AccountContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class FormAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -26,12 +28,20 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         throws AuthenticationException {
 
         String username = authentication.getName();
-        String rawPassword = (String) authentication.getPrincipal();
+        String rawPassword = (String) authentication.getCredentials();
 
         AccountContext accountContext = (AccountContext) userDetailsService
             .loadUserByUsername(username);
         if (!passwordEncoder.matches(rawPassword, accountContext.getPassword())) {
             throw new BadCredentialsException("인증 실패");
+        }
+
+        FormWebAuthenticationDetails formWebAuthenticationDetails = (FormWebAuthenticationDetails) authentication
+            .getDetails();
+
+        String secretKey = formWebAuthenticationDetails.getSecretKey();
+        if (secretKey == null || !secretKey.equals("secret")) {
+            throw new InsufficientAuthenticationException("InsufficientAuthenticationException");
         }
 
         return new UsernamePasswordAuthenticationToken(accountContext.getAccount(), null,

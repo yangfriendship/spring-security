@@ -18,9 +18,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void createUser(Account account) {
+    public Account createUser(Account account) {
         encodePassword(account);
-        userRepository.save(account);
+        return userRepository.save(account);
     }
 
     private void encodePassword(Account account) {

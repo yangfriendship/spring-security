@@ -5,6 +5,6 @@ import io.security.corespringsecurity.domain.AccountDto;
 
 public interface UserService {
 
-    void createUser(Account account);
+    Account createUser(Account account);
 
 }
