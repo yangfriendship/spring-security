@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/header::userHead"></head>
+<body>
+<div th:replace="layout/top::header"></div>
+<body>
+
+<div class="container">
+
+  <h1><span th:text="${username}" class="alert alert-danger"/> 접근권한이 없습니다.</h1>
+  <h3 th:text="${exception}"></h3>
+</div>
+
+</body>
+</html>

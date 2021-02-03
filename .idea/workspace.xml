@@ -3,8 +3,34 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="" />
+    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ajax.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/common/AjaxLoginAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/AjaxSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxAuthenticationSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/AjaxDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/handler/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/AjaxAuthenticationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/token/AjaxAuthenticationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/message.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/io/security/corespringsecurity/security/configs/AjaxSecurityConfigTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corespringsecurity.iml" beforeDir="false" afterPath="$PROJECT_DIR$/corespringsecurity.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/login/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,11 +39,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
+        <option value="HTTP Request" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="cbed9720956c58f577f32e1156b90e3344a4f8e9" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -34,6 +68,7 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -41,19 +76,94 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../speing-security" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="io.security.corespringsecurity.security.configs" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.security.corespringsecurity.security.handler" />
+      <recent name="io.security.corespringsecurity.security.configs" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\resources\templates" />
+      <recent name="C:\Users\yangf\workspace\spring\speing-security\src\main\resources\templates\user\login" />
       <recent name="C:\Users\yangf\workspace\spring\basicsecurity" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080/api/login" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="X-Requested-With" />
+                <option name="value" value="XMLHttpRequest" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  &quot;username&quot; : &quot;dnwjd123&quot;,&#10;  &quot;password&quot; : &quot;dnwjd123&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CoreSpringSecurityApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ajax#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/ajax.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ajax#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/src/ajax.http" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="AjaxSecurityConfigTest.ajaxLoginTest_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="corespringsecurity" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.security.corespringsecurity.security.configs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.security.corespringsecurity.security.configs" />
+      <option name="MAIN_CLASS_NAME" value="io.security.corespringsecurity.security.configs.AjaxSecurityConfigTest" />
+      <option name="METHOD_NAME" value="ajaxLoginTest_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BasicsecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="basicsecurity" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="io.security.basicsecurity.BasicsecurityApplication" />
@@ -61,8 +171,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CoreSpringSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="corespringsecurity" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.security.corespringsecurity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.security.corespringsecurity.CoreSpringSecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.BasicsecurityApplication" />
+      <item itemvalue="Spring Boot.CoreSpringSecurityApplication" />
+      <item itemvalue="HTTP Request.ajax#1" />
+      <item itemvalue="JUnit.AjaxSecurityConfigTest.ajaxLoginTest_Success" />
+      <item itemvalue="HTTP Request.ajax#2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CoreSpringSecurityApplication" />
+        <item itemvalue="HTTP Request.ajax#1" />
+        <item itemvalue="HTTP Request.ajax#2" />
+        <item itemvalue="JUnit.AjaxSecurityConfigTest.ajaxLoginTest_Success" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.3" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="" />
@@ -78,54 +219,187 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="COLUMN_WIDTH">
+                <map>
+                  <entry key="2" value="90" />
+                  <entry key="3" value="136" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser" timestamp="1612058387610">
+    <state x="121" y="0" key="#Project_Structure" timestamp="1612335142761">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="46" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1612058387610" />
+    <state x="121" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1612335142761" />
+    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1612341608662">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1612341608662" />
+    <state x="655" y="27" key="#xdebugger.evaluate" timestamp="1612348035313">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="655" y="27" key="#xdebugger.evaluate/0.0.1280.680@0.0.1280.680" timestamp="1612348035313" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1612242447489">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612242447489" />
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.0.bottom" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.0.center" timestamp="1612347934510">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1612242398542">
+    <state width="1237" height="304" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934510" />
+    <state width="1237" height="304" key="GridCell.Tab.0.left" timestamp="1612347934510">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612242398542" />
-    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934510" />
+    <state width="1237" height="304" key="GridCell.Tab.0.right" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.1.bottom" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.1.bottom" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.1.center" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.1.center" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.1.left" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.1.left" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state width="1237" height="172" key="GridCell.Tab.1.right" timestamp="1612242398543">
+    <state width="1237" height="304" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.1.right" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612242398543" />
-    <state x="347" y="72" width="587" height="536" key="find.popup" timestamp="1612191155611">
+    <state width="1237" height="304" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.2.bottom" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="347" y="72" width="587" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1612191155611" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612236986572">
+    <state width="1237" height="304" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.2.center" timestamp="1612347934511">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612236986572" />
+    <state width="1237" height="304" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.2.left" timestamp="1612347934511">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="304" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state width="1237" height="304" key="GridCell.Tab.2.right" timestamp="1612347934511">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="304" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1612347934511" />
+    <state x="171" y="0" key="Maven.ArtifactSearchDialog" timestamp="1612328203593">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="171" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1612328203593" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1612327150839">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612327150839" />
+    <state x="372" y="73" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1612339408801">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="372" y="73" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1612339408801" />
+    <state x="175" y="70" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1612347946893">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="175" y="70" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680@0.0.1280.680" timestamp="1612347946893" />
+    <state x="347" y="72" width="587" height="536" key="find.popup" timestamp="1612347096646">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="347" y="72" width="587" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1612347096646" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612347991676">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612347991676" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/provider/FormAuthenticationProvider.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.2.1.RELEASE/spring-security-web-5.2.1.RELEASE-sources.jar!/org/springframework/security/web/csrf/CsrfFilter.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.apache.catalina.connector.RequestFacade" memberName="request" />
+        <PinnedItemInfo parentTag="org.apache.catalina.connector.Request" memberName="formats" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((java.util.ArrayList)((VirtualFilterChain)this).additionalFilters).get(5)" custom="org.springframework.security.web.FilterChainProxy.VirtualFilterChain,java.util.ArrayList" />
+        <watch expression="this.request" custom="org.springframework.security.web.header.HeaderWriterFilter.HeaderWriterRequest,org.springframework.security.web.context.HttpSessionSecurityContextRepository.SaveToSessionRequestWrapper,org.springframework.security.web.firewall.FirewalledRequest" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
