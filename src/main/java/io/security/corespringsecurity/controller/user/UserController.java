@@ -46,12 +46,10 @@ public class UserController {
 	@GetMapping(value="/mypage")
 	public String myPage(@AuthenticationPrincipal Account account, Authentication authentication, Principal principal) throws Exception {
 
-		String username1 = account.getUsername();
-		System.out.println("username1 = " + username1);
+
 
 		Account account2 = (Account) authentication.getPrincipal();
 		String username2 = account2.getUsername();
-		System.out.println("username2 = " + username2);
 
 		Account account3 = null;
 		if (principal instanceof UsernamePasswordAuthenticationToken) {
