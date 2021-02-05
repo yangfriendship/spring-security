@@ -13,25 +13,21 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 
 public class PermitAllFilter extends FilterSecurityInterceptor {
 
+
+
     private static final String FILTER_APPLIED = "__spring_security_filterSecurityInterceptor_filterApplied";
-    private boolean observeOncePerRequest = true;
 
-    private List<RequestMatcher> requestMatchers = new ArrayList<>();
+    private List<RequestMatcher> permitAllRequestMatcher = new ArrayList<>();
 
-    public PermitAllFilter(String... permitAllResources) {
-        for (String resource : permitAllResources) {
-            requestMatchers.add(new AntPathRequestMatcher(resource));
-        }
+    public PermitAllFilter(String... permitAllPattern) {
+        createPermitAllPattern(permitAllPattern);
     }
-
 
     @Override
     protected InterceptorStatusToken beforeInvocation(Object object) {
-
         boolean permitAll = false;
-
         HttpServletRequest request = ((FilterInvocation) object).getRequest();
-        for (RequestMatcher requestMatcher : this.requestMatchers) {
+        for (RequestMatcher requestMatcher : permitAllRequestMatcher) {
             if (requestMatcher.matches(request)) {
                 permitAll = true;
                 break;
@@ -39,26 +35,27 @@ public class PermitAllFilter extends FilterSecurityInterceptor {
         }
 
         if (permitAll) {
-            return null; // null을 리턴하면 권한 검사를 하지 않는다.
+            return null;
         }
 
         return super.beforeInvocation(object);
     }
 
+    @Override
     public void invoke(FilterInvocation fi) throws IOException, ServletException {
-        if ((fi.getRequest() != null)
-            && (fi.getRequest().getAttribute(FILTER_APPLIED) != null)
-            && observeOncePerRequest) {
+
+        if ((fi.getRequest() != null) && (fi.getRequest().getAttribute(FILTER_APPLIED) != null)
+                && super.isObserveOncePerRequest()) {
             // filter already applied to this request and user wants us to observe
             // once-per-request handling, so don't re-do security checking
             fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
         } else {
             // first time this request being called, so perform security checking
-            if (fi.getRequest() != null && observeOncePerRequest) {
+            if (fi.getRequest() != null) {
                 fi.getRequest().setAttribute(FILTER_APPLIED, Boolean.TRUE);
             }
 
-            InterceptorStatusToken token = super.beforeInvocation(fi);
+            InterceptorStatusToken token = beforeInvocation(fi);
 
             try {
                 fi.getChain().doFilter(fi.getRequest(), fi.getResponse());
@@ -70,4 +67,10 @@ public class PermitAllFilter extends FilterSecurityInterceptor {
         }
     }
 
+    private void createPermitAllPattern(String... permitAllPattern) {
+        for (String pattern : permitAllPattern) {
+            permitAllRequestMatcher.add(new AntPathRequestMatcher(pattern));
+        }
+
+    }
 }

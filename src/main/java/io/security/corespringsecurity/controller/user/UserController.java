@@ -3,6 +3,7 @@ package io.security.corespringsecurity.controller.user;
 
 import io.security.corespringsecurity.domain.dto.AccountDto;
 import io.security.corespringsecurity.domain.entity.Account;
+import io.security.corespringsecurity.repository.RoleRepository;
 import io.security.corespringsecurity.security.token.AjaxAuthenticationToken;
 import io.security.corespringsecurity.service.UserService;
 import java.security.Principal;
@@ -26,6 +27,9 @@ public class UserController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private RoleRepository roleRepository;
+
 	@GetMapping(value="/users")
 	public String createUser() throws Exception {
 
@@ -38,6 +42,7 @@ public class UserController {
 		ModelMapper modelMapper = new ModelMapper();
 		Account account = modelMapper.map(accountDto, Account.class);
 		account.setPassword(passwordEncoder.encode(accountDto.getPassword()));
+
 		userService.createUser(account);
 
 		return "redirect:/";
@@ -46,10 +51,12 @@ public class UserController {
 	@GetMapping(value="/mypage")
 	public String myPage(@AuthenticationPrincipal Account account, Authentication authentication, Principal principal) throws Exception {
 
-
+		String username1 = account.getUsername();
+		System.out.println("username1 = " + username1);
 
 		Account account2 = (Account) authentication.getPrincipal();
 		String username2 = account2.getUsername();
+		System.out.println("username2 = " + username2);
 
 		Account account3 = null;
 		if (principal instanceof UsernamePasswordAuthenticationToken) {

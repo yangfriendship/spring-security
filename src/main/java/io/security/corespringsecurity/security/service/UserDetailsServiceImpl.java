@@ -5,6 +5,7 @@ import io.security.corespringsecurity.repository.UserRepository;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,8 +22,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private HttpServletRequest request;
+    @Autowired
+    private HttpServletRequest request;
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -33,12 +34,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
         }
         Set<String> userRoles = account.getUserRoles()
-            .stream()
-            .map(userRole -> userRole.getRoleName())
-            .collect(Collectors.toSet());
+                .stream()
+                .map(userRole -> userRole.getRoleName())
+                .collect(Collectors.toSet());
 
-        List<GrantedAuthority> collect = userRoles.stream().map(SimpleGrantedAuthority::new)
-            .collect(Collectors.toList());
+        List<GrantedAuthority> collect = userRoles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
         return new AccountContext(account, collect);
     }
 }

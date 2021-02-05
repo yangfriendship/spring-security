@@ -32,4 +32,9 @@ public class RoleServiceImpl implements RoleService {
 
         roleRepository.save(role);
     }
+
+    @Transactional
+    public void deleteRole(long id) {
+        roleRepository.deleteById(id);
+    }
 }

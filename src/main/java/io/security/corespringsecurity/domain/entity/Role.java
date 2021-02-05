@@ -25,7 +25,7 @@ import lombok.ToString;
 @Table(name = "ROLE")
 @Getter
 @Setter
-@ToString(exclude = {"users", "resourcesSet"})
+@ToString(exclude = {"users","resourcesSet"})
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

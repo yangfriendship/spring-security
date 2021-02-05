@@ -1,47 +1,37 @@
 package io.security.corespringsecurity.security.factory;
 
-
-import io.security.corespringsecurity.security.service.SecurityResourceService;
+import io.security.corespringsecurity.service.SecurityResourceService;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
-public class UrlResourcesMapFactoryBean implements
-    FactoryBean<LinkedHashMap<RequestMatcher, List<ConfigAttribute>>> {
+public class UrlResourcesMapFactoryBean implements FactoryBean<LinkedHashMap<RequestMatcher, List<ConfigAttribute>>> {
 
-    private SecurityResourceService service;
+    private SecurityResourceService securityResourceService;
 
-    private LinkedHashMap<RequestMatcher, List<ConfigAttribute>> resourceMap;
-
-    public void setService(SecurityResourceService service) {
-        this.service = service;
+    public void setSecurityResourceService(SecurityResourceService securityResourceService) {
+        this.securityResourceService = securityResourceService;
     }
 
-    @Override
-    public LinkedHashMap<RequestMatcher, List<ConfigAttribute>> getObject() throws Exception {
+    private LinkedHashMap<RequestMatcher, List<ConfigAttribute>> resourcesMap;
 
-        if (resourceMap == null) {
+    public void init() {
+            resourcesMap = securityResourceService.getResourceList();
+    }
+
+    public LinkedHashMap<RequestMatcher, List<ConfigAttribute>> getObject() {
+        if (resourcesMap == null) {
             init();
         }
-
-        return this.resourceMap;
+        return resourcesMap;
     }
 
-    private void init() {
-        if (this.service == null) {
-            throw new IllegalStateException("SecurityResourceService가 null 입니다.");
-        }
-        resourceMap = service.getResourcesAsMap();
-    }
-
-    @Override
-    public Class<?> getObjectType() {
+	public Class<LinkedHashMap> getObjectType() {
         return LinkedHashMap.class;
     }
 
-    @Override
     public boolean isSingleton() {
         return true;
     }
