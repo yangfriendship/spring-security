@@ -1,6 +1,6 @@
 package io.security.corespringsecurity.metadatasource;
 
-import java.util.Arrays;
+import io.security.corespringsecurity.security.service.SecurityResourceService;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -8,39 +8,40 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.ConfigAttribute;
-import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
+@Slf4j
+@RequiredArgsConstructor
 public class UrlFilterInvocationSecurityMetaDataSource implements
     FilterInvocationSecurityMetadataSource {
 
-    private LinkedHashMap<RequestMatcher, List<ConfigAttribute>> requestMap = new LinkedHashMap<>();
+    private final LinkedHashMap<RequestMatcher, List<ConfigAttribute>> requestMap;
+    private final SecurityResourceService securityResourceService;
+
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object object)
         throws IllegalArgumentException {
 
-        HttpServletRequest request = ((FilterInvocation) object).getRequest();
+        Collection<ConfigAttribute> result = null;
+        FilterInvocation fi = (FilterInvocation) object;
+        HttpServletRequest httpServletRequest = fi.getHttpRequest();
 
-        // TODO Test
-        requestMap.put(new AntPathRequestMatcher("/mypage"),
-            Arrays.asList(new SecurityConfig("ROLE_USER")));
-
-        if (requestMap.size() == 0) {
-            return null;
-        }
-
-        for (Map.Entry<RequestMatcher, List<ConfigAttribute>> entry : requestMap.entrySet()) {
-            RequestMatcher matcher = entry.getKey();
-            if (matcher.matches(request)) {
-                return entry.getValue();
+        if (requestMap != null) {
+            for (Map.Entry<RequestMatcher, List<ConfigAttribute>> entry : requestMap.entrySet()) {
+                RequestMatcher matcher = entry.getKey();
+                if (matcher.matches(httpServletRequest)) {
+                    result = entry.getValue();
+                    break;
+                }
             }
         }
-        return null;
+        return result;
     }
 
     @Override
@@ -60,4 +61,9 @@ public class UrlFilterInvocationSecurityMetaDataSource implements
     public boolean supports(Class<?> clazz) {
         return FilterInvocation.class.isAssignableFrom(clazz);
     }
+
+    public void reload() {
+
+    }
+
 }

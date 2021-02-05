@@ -8,13 +8,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="clone : UrlFilterInvocationSecurityMetaDataSourceImpl 구현">
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/factory/UrlResourcesMapFactoryBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/SecurityResourceService.java" afterDir="false" />
+    <list default="true" id="33ba579a-2bcf-4317-b919-7cc02d22fb6f" name="Default Changelist" comment="feat : SecurityConfig , 인가에 대한 데이터를 가져와서 처리하는 로직">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/PermitAllFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/ResourcesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/controller/admin/ResourcesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/domain/entity/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/metadatasource/UrlFilterInvocationSecurityMetaDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/metadatasource/UrlFilterInvocationSecurityMetaDataSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/configs/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/factory/UrlResourcesMapFactoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/factory/UrlResourcesMapFactoryBean.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -200,7 +203,8 @@
       <workItem from="1612055919488" duration="14282000" />
       <workItem from="1612242428003" duration="21000" />
       <workItem from="1612350057157" duration="9196000" />
-      <workItem from="1612447099906" duration="2770000" />
+      <workItem from="1612447099906" duration="7213000" />
+      <workItem from="1612493927930" duration="4692000" />
     </task>
     <task id="LOCAL-00001" summary="feat : ajax login">
       <created>1612348121762</created>
@@ -223,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612363891896</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat : SecurityConfig , 인가에 대한 데이터를 가져와서 처리하는 로직">
+      <created>1612449955443</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612449955443</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,17 +304,22 @@
     <MESSAGE value="feat : ajax login" />
     <MESSAGE value="clone : 실습 예제 적용" />
     <MESSAGE value="clone : UrlFilterInvocationSecurityMetaDataSourceImpl 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="clone : UrlFilterInvocationSecurityMetaDataSourceImpl 구현" />
+    <MESSAGE value="feat : SecurityConfig , 인가에 대한 데이터를 가져와서 처리하는 로직" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : SecurityConfig , 인가에 대한 데이터를 가져와서 처리하는 로직" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1612335142761">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1612335142761" />
-    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1612448849782">
+    <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612495559096">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1612448849782" />
+    <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1612495559096" />
+    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser" timestamp="1612497844663">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="302" y="51" width="689" height="567" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1612497844663" />
     <state x="655" y="27" key="#xdebugger.evaluate" timestamp="1612348035313">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -312,62 +328,70 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612242447489" />
-    <state width="1237" height="209" key="GridCell.Tab.0.bottom" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.0.bottom" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="209" key="GridCell.Tab.0.center" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="209" key="GridCell.Tab.0.center" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="209" key="GridCell.Tab.0.left" timestamp="1612448751529">
+    <state width="1237" height="209" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="209" key="GridCell.Tab.0.left" timestamp="1612498611560">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612448751529" />
-    <state width="1237" height="209" key="GridCell.Tab.0.right" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612498611560" />
+    <state width="1237" height="209" key="GridCell.Tab.0.right" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="209" key="GridCell.Tab.1.bottom" timestamp="1612448751531">
+    <state width="1237" height="209" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="209" key="GridCell.Tab.1.bottom" timestamp="1612498611562">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612448751531" />
-    <state width="1237" height="209" key="GridCell.Tab.1.center" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612498611562" />
+    <state width="1237" height="209" key="GridCell.Tab.1.center" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="209" key="GridCell.Tab.1.left" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="209" key="GridCell.Tab.1.left" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="209" key="GridCell.Tab.1.right" timestamp="1612448751530">
+    <state width="1237" height="209" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="209" key="GridCell.Tab.1.right" timestamp="1612498611561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="209" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612448751530" />
-    <state width="1237" height="304" key="GridCell.Tab.2.bottom" timestamp="1612363915415">
+    <state width="1237" height="209" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1612498611561" />
+    <state width="1237" height="297" key="GridCell.Tab.2.bottom" timestamp="1612497214848">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612363915415" />
-    <state width="1237" height="304" key="GridCell.Tab.2.center" timestamp="1612363915414">
+    <state width="1237" height="297" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612497214848" />
+    <state width="1237" height="297" key="GridCell.Tab.2.center" timestamp="1612497214848">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1612363915414" />
-    <state width="1237" height="304" key="GridCell.Tab.2.left" timestamp="1612363915414">
+    <state width="1237" height="297" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1612497214848" />
+    <state width="1237" height="297" key="GridCell.Tab.2.left" timestamp="1612497214847">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1612363915414" />
-    <state width="1237" height="304" key="GridCell.Tab.2.right" timestamp="1612363915415">
+    <state width="1237" height="297" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1612497214847" />
+    <state width="1237" height="297" key="GridCell.Tab.2.right" timestamp="1612497214848">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="304" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1612363915415" />
+    <state width="1237" height="297" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1612497214848" />
     <state x="171" y="0" key="Maven.ArtifactSearchDialog" timestamp="1612328203593">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="171" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1612328203593" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1612363906769">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1612449962019">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612363906769" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1612449962019" />
+    <state x="480" y="69" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1612495573129">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="480" y="69" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1612495573129" />
+    <state x="455" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612497776083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="455" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1612497776083" />
     <state x="372" y="73" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1612339408801">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -376,14 +400,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="175" y="70" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680@0.0.1280.680" timestamp="1612347946893" />
-    <state x="347" y="72" width="587" height="536" key="find.popup" timestamp="1612347096646">
+    <state x="347" y="72" width="621" height="536" key="find.popup" timestamp="1612496178955">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="347" y="72" width="587" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1612347096646" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612448653817">
+    <state x="347" y="72" width="621" height="536" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1612496178955" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612498205962">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612448653817" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612498205962" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -402,6 +426,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/filter/AjaxLoginProcessingFilter.java</url>
           <line>51</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/SecurityResourceService.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/security/corespringsecurity/security/service/SecurityResourceService.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.2.1.RELEASE/spring-security-web-5.2.1.RELEASE-sources.jar!/org/springframework/security/web/FilterChainProxy.java</url>
+          <line>333</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

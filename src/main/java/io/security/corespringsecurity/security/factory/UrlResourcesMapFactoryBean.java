@@ -30,6 +30,9 @@ public class UrlResourcesMapFactoryBean implements
     }
 
     private void init() {
+        if (this.service == null) {
+            throw new IllegalStateException("SecurityResourceService가 null 입니다.");
+        }
         resourceMap = service.getResourcesAsMap();
     }
 
